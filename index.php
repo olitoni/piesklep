@@ -63,7 +63,7 @@ if (isset($_POST['prod'])) {
         <div class="c-nav">
           <ul class="c-nav__list">
             <?php
-            if ($_SESSION['username'] == "admin") {
+            if ($_SESSION['admin'] == 1) {
               echo "<li class='c-nav__item'><a href='/admin' class='c-nav__link'>Admin Panel</a></li>";
             }
             ?>

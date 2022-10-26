@@ -3,24 +3,37 @@ include 'connection.php';
 
 if (isset($_POST['edit'])) {
 
-  $stmt = $connection->prepare("SELECT image FROM products WHERE id = ?");
+  $stmt = $connection->prepare("SELECT image, thumbnail FROM products WHERE id = ?");
   $stmt -> bind_param('i', $prod);
   $prod = (int)$_POST['edit'];
   $stmt->execute();
   $result = $stmt->get_result();
   $row = mysqli_fetch_array($result);
   $img = $row['image'];
+  $thumb = $row['thumbnail'];
 
   if(isset($_POST['update'])) {
     unlink("..".$img);
-    $filename = date('Y-m-d_H-i-s')."_".$_FILES['file']['name'];
+    unlink("..".$thumb);
+
+    $filename = date('Y-m-d-H-i-s')."_".$_FILES['file']['name'];
     $path = "../uploads/$filename";
     move_uploaded_file($_FILES['file']['tmp_name'], $path);
+    
+    $blob = file_get_contents($path);
+    $src = imagecreatefromstring($blob);
+    list($width, $height) = getimagesize($path);
+    $tmp = imagecreatetruecolor(150, 90);
+    $file = '../thumbnails/'.$filename;
+    imagecopyresampled($tmp, $src, 0, 0, 0, 0, 150, 90, $width, $height);
+    imagebmp($tmp, $file, 100);
+    
     $img = "/uploads/$filename";
+    $thumb = "/thumbnails/$filename";
   }
 
-  $stmt = $connection->prepare("UPDATE products SET name = ?, description = ?, image = ?, price = ?, review = ? WHERE id = ?");
-  $stmt->bind_param("sssiii", $name, $desc, $img, $price, $review, $prod);
+  $stmt = $connection->prepare("UPDATE products SET name = ?, description = ?, image = ?, thumbnail = ?, price = ?, review = ? WHERE id = ?");
+  $stmt->bind_param("ssssiii", $name, $desc, $img, $thumb ,$price, $review, $prod);
   $name = $_POST['name'];
   $desc = $_POST['desc'];
   $price = (int)$_POST['price'];

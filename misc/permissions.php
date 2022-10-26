@@ -1,46 +1,26 @@
 <?php
 session_start();
+if (!isset($_SESSION['login']) || $_SESSION['admin'] == 0) {
+  header('Location: /login.php');
+  exit();
+}
 
-include 'misc/connection.php';
+$id = $_GET['id'];
+$action = $_GET['action'];
+include '../misc/connection.php';
 
-if (isset($_POST['removal'])) {
-  if ($_POST['removal'] === 'all') {
-    $stmt = $connection->prepare("DELETE FROM `carts` WHERE user = ?");
-    $stmt->bind_param("i", $id);
-    $id = (int)$_SESSION['id'];
+if(isset($_POST['confirm'])) {
+  if($_POST['confirm'] == 1) {
+    $stmt = $connection->prepare("UPDATE users SET admin = ? WHERE id = ?");
+    $stmt->bind_param("ii", $new, $id);
+    $new = $action == 'promote'?1:0;
     $stmt->execute();
-  } else {
-    $id = (int)$_SESSION['id'];
-    $prod = (int)$_POST['removal'];
-    $num = (int)$_POST['num' . $prod];
-    $stmt = $connection->prepare("SELECT count FROM carts WHERE user = ? AND product = ?");
-    $stmt->bind_param("ii", $id, $prod);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $row = mysqli_fetch_array($result);
-
-    if ($row['count'] <= $num) {
-      $stmt = $connection->prepare("DELETE FROM `carts` WHERE user = ? AND product = ?");
-      $stmt->bind_param("ii", $id, $prod);
-      $stmt->execute();
-    } else {
-      $stmt = $connection->prepare("UPDATE `carts` SET count = count - ? WHERE user = ? AND product = ?");
-      $stmt->bind_param("iii", $num, $id, $prod);
-      $stmt->execute();
-    }
+    if ($_SESSION['id'] == $id) $_SESSION['admin'] = $new;
   }
-  header('Location: cart.php');
+  header('Location: /admin');
 }
-
-if (isset($_POST['produ_removal'])) {
-  $stmt = $connection->prepare("DELETE FROM `carts` WHERE user = ? AND product = ?");
-  $stmt->bind_param("ii", $id, $prod);
-  $prod = (int)$_POST['produ_removal'];
-  $id = (int)$_SESSION['id'];
-  $stmt->execute();
-}
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,8 +29,8 @@ if (isset($_POST['produ_removal'])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Piesklep</title>
-  <link rel="stylesheet" href="css/normalize.css" />
-  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="/css/normalize.css" />
+  <link rel="stylesheet" href="/css/main.css" />
 </head>
 
 <body>
@@ -64,14 +44,14 @@ if (isset($_POST['produ_removal'])) {
             <svg viewBox="0 0 100 50" width="40" height="40">
               <rect fill="#9393a5" width="70" height="10"></rect>
               <rect fill="#9393a5" width="70" height="10" y="20"></rect>
-              <rect fill="#9393a5" width="70" height="10" y="40"></rect>
+              3 <rect fill="#9393a5" width="70" height="10" y="40"></rect>
             </svg>
           </div>
         </div>
 
         <div class="c-nav">
           <ul class="c-nav__list">
-          <?php
+            <?php
             if ($_SESSION['admin'] == '1') {
               echo "<li class='c-nav__item'><a href='/admin' class='c-nav__link'>Admin Panel</a></li>";
             }
@@ -83,10 +63,10 @@ if (isset($_POST['produ_removal'])) {
               <a href="/" class="c-nav__link">Home</a>
             </li>
             <li class="c-nav__item">
-              <a href="cart.php" class="c-nav__link">Koszyk</a>
+              <a href="/cart.php" class="c-nav__link">Koszyk</a>
             </li>
             <li class="c-nav__item">
-              <a href="logout.php" class="c-nav__link">Wyloguj</a>
+              <a href="/logout.php" class="c-nav__link">Wyloguj</a>
             </li>
           </ul>
         </div>
@@ -96,26 +76,23 @@ if (isset($_POST['produ_removal'])) {
 
   <div class="c-panel">
     <div class="o-container">
-      <form action="cart.php" method="post">
+      <form action='' method='post'>
         <?php
-        $total = 0;
-        $id = $_SESSION['id'];
-        $query = "SELECT carts.id, carts.count, carts.product, products.name, products.thumbnail, products.price FROM `carts` INNER JOIN products ON carts.product = products.id WHERE user = $id;";
-        $result = mysqli_query($connection, $query);
-        while ($wiersz = mysqli_fetch_array($result)) {
-          $name = $wiersz['name'];
-          $image = $wiersz['thumbnail'];
-          $id = $wiersz['product'];
-          $count = $wiersz['count'];
-          $total += $price = $wiersz['price'] * $count;
-          $price = number_format($price, 2, ',', ' ');
-          $total = number_format($total, 2, ',', ' ');
-          echo "<div class='c-cart__product'><div class='c-cart__img' style='background-image: url($image);'></div><div class='c-cart__desc'><h3>$count x $name</h3><a><button class='btn_secondary' name='removal' value='$id'><span>$price €</span></button></a><input type='number' name='num$id' min='1' max='100' class='num' value='1'><a><button class='btn_third' name='produ_removal' value='$id'>Remove all</button></a></div></div>";
-        }
+
+        $stmt = $connection->prepare("SELECT * FROM users WHERE id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $row = mysqli_fetch_array($result);
+        $name = $row['username'];
+
+
         mysqli_close($connection);
         ?>
-        <h3>Total: <?php echo $total ?> €</h3>
-        <a><button class='btn_clr' name='removal' value='all'><span>Remove all</span></button></a>
+        <h1 style="width: 50%;">Czy na pewno chcesz zmienić rolę użytkownika "<?php echo $name?>" (id: <?php echo $id?>) z <?php echo $action=='promote'?'użytkownik':'administrator'?> na <?php echo $action=='promote'?'administrator':'użytkownik'?>?</h1>
+        <button class='btnn' name='confirm' value='1'>Tak</button>
+        <button class='btnn' name='confirm' value='0'>Nie</button>
       </form>
     </div>
   </div>

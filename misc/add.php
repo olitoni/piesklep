@@ -2,18 +2,27 @@
 include 'connection.php';
 
 if (isset($_POST['add'])) {
-  $stmt = $connection->prepare("INSERT INTO `products` (id, name, description, image, price, review) VALUES (NULL, ?, ?, ?, ?, ?)");
-  $stmt->bind_param("sssii", $name, $desc, $img, $price, $review);
-  $filename = date('Y-m-d_H-i-s')."_".$_FILES['file']['name'];
+  $stmt = $connection->prepare("INSERT INTO `products` (id, name, description, image, thumbnail, price, review) VALUES (NULL, ?, ?, ?, ?, ?, ?)");
+  $stmt->bind_param("ssssii", $name, $desc, $img, $thumb, $price, $review);
+  $filename = date('Y-m-d_H-i-s') . "_" . $_FILES['file']['name'];
   $name = $_POST['name'];
   $desc = $_POST['desc'];
   $img = "/uploads/$filename";
+  $thumb = "/thumbnails/$filename";
   $price = (int)$_POST['price'];
   $review = (int)$_POST['review'];
   $stmt->execute();
-  
+
   $path = "../uploads/$filename";
   move_uploaded_file($_FILES['file']['tmp_name'], $path);
+
+  $blob = file_get_contents($path);
+  $src = imagecreatefromstring($blob);
+  list($width, $height) = getimagesize($path);
+  $tmp = imagecreatetruecolor(150, 90);
+  $file = '../thumbnails/'.$filename;
+  imagecopyresampled($tmp, $src, 0, 0, 0, 0, 150, 90, $width, $height);
+  imagebmp($tmp, $file, 100);
 
   header('Location: /admin');
 }
@@ -35,7 +44,7 @@ if (isset($_POST['add'])) {
       selector: '#mytextarea',
       height: '220px',
       width: 'calc(30vw + 20px)',
-      forced_root_block : '',
+      forced_root_block: '',
       menubar: false,
       statusbar: false,
       resize: false,
@@ -101,19 +110,19 @@ if (isset($_POST['add'])) {
   </div>
 
   <script>
-      function handleFileSelect(evt) {
-        let files = evt.target.files;
-        let f = files[0];
-        let reader = new FileReader();
-		
-        reader.onload = (function(theFile) {
-          return function(e) {
-            document.querySelector('#img').src = e.target.result;
-          };
-        })(f);
-    
-        reader.readAsDataURL(f);
-      }
+    function handleFileSelect(evt) {
+      let files = evt.target.files;
+      let f = files[0];
+      let reader = new FileReader();
+
+      reader.onload = (function(theFile) {
+        return function(e) {
+          document.querySelector('#img').src = e.target.result;
+        };
+      })(f);
+
+      reader.readAsDataURL(f);
+    }
   </script>
 
   <div class="c-footer">
