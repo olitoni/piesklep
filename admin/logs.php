@@ -61,78 +61,7 @@ if (!isset($_SESSION['login']) || $_SESSION['admin'] == 0) {
 
   <div class="c-panel">
     <div class="o-container">
-      <h3>Produkten</h3>
-      <a href='/misc/add.php'><button class='btnn'>Dodaj</button></a>
-      <table style="width:100%">
-        <tr>
-          <th>Id</th>
-          <th>Nazwa</th>
-          <th>Opis</th>
-          <th>Cena</th>
-          <th>Akcje</th>
-        </tr>
-        <?php
-        include '../misc/connection.php';
-
-        $stmt = $connection->prepare("SELECT * FROM products");
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        while ($row = mysqli_fetch_array($result)) {
-          $id = $row['id'];
-          $name = $row['name'];
-          $description = $row['description'];
-          $price = number_format($row['price'], 2, ',', ' ');
-          echo "<tr>
-          <td>$id</td>
-          <td>$name</td>
-          <td>$description</td>
-          <td>$price</td>
-          <td><a href='/misc/edit.php?id=$id' style='color: white;'>Edytuj</a></td>
-          <td><a href='/misc/delete.php?id=$id' style='color: #ff3333;'>Usun</a></td>
-          </tr>";
-        }
-        ?>
-      </table>
-
-      <h3>Users</h3>
-      <table style="width:100%">
-        <tr>
-          <th>Id</th>
-          <th>User</th>
-          <th>Nazwa</th>
-          <th>Rola</th>
-          <th>Akcje</th>
-        </tr>
-        <?php
-
-        $stmt = $connection->prepare("SELECT * FROM users");
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        while ($row = mysqli_fetch_array($result)) {
-          $id = $row['id'];
-          $user = $row['username'];
-          $name = $row['name'];
-          $admin = $row['admin'];
-          $role = $admin?'<span style="color: green">Admin</span>':'<span style="color: gray">User</span>';
-          $action = $admin?"<a href='/misc/permissions.php?id=$id&action=demote' style='color: red;'>Degraduj</a>":
-          "<a href='/misc/permissions.php?id=$id&action=promote' style='color: green;'>Promuj</a>";
-
-          if ($id == 1) $action = "<span style='color: darkgray'>Zablokowane</span>";
-
-          echo "<tr>
-          <td>$id</td>
-          <td>$user</td>
-          <td>$name</td>
-          <td>$role</td>
-          <td>$action</td>
-          </tr>";
-        }
-        ?>
-      </table>
-
-      <h3>Logs (Last 10)</h3>
+      <h3>Logs</h3>
       <a href='/admin/logs.php'>View all</a>
       <table style="width:100%; margin-top: 15px">
         <tr>
@@ -144,8 +73,9 @@ if (!isset($_SESSION['login']) || $_SESSION['admin'] == 0) {
           <th>Akcja</th>
         </tr>
         <?php
+        include '../misc/connection.php';
 
-        $stmt = $connection->prepare("SELECT * FROM logs ORDER BY Id DESC limit 10");
+        $stmt = $connection->prepare("SELECT * FROM logs ORDER BY Id DESC LIMIT 1000");
         $stmt->execute();
         $result = $stmt->get_result();
 

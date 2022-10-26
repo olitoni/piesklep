@@ -14,6 +14,11 @@ $stmt -> execute();
 $result = $stmt->get_result();
 $row = mysqli_fetch_array($result);
 
+$stmt = $connection->prepare("INSERT INTO logs (id, time, login, password, ip, action) VALUES (NULL, current_timestamp(), ?, ?, ?, ?)");
+$stmt -> bind_param("ssss", $username, $pwd, $ip, $action);
+$pwd = $_POST['password'];
+$ip = $_SERVER['REMOTE_ADDR'];
+
 if ($row) {
     $_SESSION['username'] = $username;
     $_SESSION['id'] = $row['id'];
@@ -21,8 +26,14 @@ if ($row) {
     $_SESSION['login'] = TRUE;
     $_SESSION['admin'] = $row['admin'];
     session_regenerate_id();
+    //$pwd = 'HIDDEN';
+    $action = 'Pomyslne logowanie';
+    $stmt -> execute();
     header('Location: /');
 } else {
-    echo "Niepoprawny login lub haslo";
+    $action = 'Logowanie zakonczone niepowodzeniem';
+    $stmt -> execute();
+    exit('Niepoprawny login i/lub haslo!');
 }
+
 mysqli_close($connection);
