@@ -1,0 +1,53 @@
+body,
+html {
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+#baner {
+    background-color: #0D873D;
+    color: white;
+    font-size: 120%;
+    text-align: right;
+    height: 60px;
+    width: 100vw;
+}
+
+#baner h1 {
+    margin: 0;
+    text-align: center;
+}
+
+#panellewy {
+    background-color: #95cca8;
+    width: 40%;
+    height: 600px;
+    float: left;
+    margin-top: 20px;
+}
+#panelsrodkowy {
+    background-color: #69bb87;
+    width: 40%;
+    height: 600px;
+    float: left;
+    margin-top: 20px;
+}
+#panelprawy {
+    background-color: #28a956;
+    width: 20%;
+    height: 600px;
+    float: left;
+    margin-top: 20px;
+}
+
+#prods {
+    list-style-image: url(auto.png);
+    margin: 20px;
+}
+
+#db {
+    color: brown;
+}
+
+#db:visited {
+    color: red;
+}

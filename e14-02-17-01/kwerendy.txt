@@ -1,0 +1,3 @@
+kw1: SELECT id, model, kolor FROM samochody WHERE marka = 'Toyota' and rocznik='2014'
+kw2: SELECT id, marka, model, rocznik FROM samochody
+kw3: SELECT zamowienia.Samochody_id, samochody.model, zamowienia.telefon FROM zamowienia INNER JOIN samochody ON zamowienia.Samochody_id = samochody.id
