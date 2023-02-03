@@ -1,0 +1,4 @@
+Kwerendy 1: INSERT INTO uzytkownicy (imie, nazwisko, adres, telefon) VALUES ('Pawel', 'Kowalski', 'Uniwerstyecka', '608111222');
+Kwerendy 2: INSERT INTO konta (login, haslo) VALUES ('pawkow', 'password');
+Kwerendy 3: SELECT imie, nazwisko FROM uzytkownicy;
+Kwerendy 4: SELECT adres FROM uzytkownicy WHERE id = 1;
