@@ -1,0 +1,36 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+#baner{
+    background-color: #9A6000;
+    text-align: center;
+    color: white;
+    font-size: 180%;
+    padding: 10px;
+}
+
+#lewy{
+    width: 60%;
+    padding: 20px;
+    box-sizing: border-box;
+    float: left;
+}
+
+#prawy{
+    width: 40%;
+    float: left;
+    background-color: #C47A00;
+    height: 100%;
+    color: #ffffff;
+}
+
+h3{
+    text-align: center;
+}
+
+ul,li{
+	margin:10px;
+}

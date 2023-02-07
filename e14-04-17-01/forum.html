@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nasze Hobby</title>
+    <link rel="stylesheet" href="hobby.css">
+</head>
+<body>
+    <div id="baner">
+        <h1>FORUM HOBBYSTYCZNE</h1>
+    </div>
+
+    <div id="lewy">
+            <h3>FORMULARZ REJESTRACJI DO FORUM</h3>
+            <form action="rejestracja.php" method="post">
+                <p><b>Twoje dane:</b></p>
+                <label for="">Nick:</label><br>
+                <input type="text" name="nick"><br>
+                <label for="">Hobby:</label><br>
+                <input type="text" name="hobby"><br>
+                <label for="">Zawód:</label><br>
+                <input type="text" name="zawod"><br>
+
+                <input type="radio" name="plec" value="k">Kobieta
+                <input type="radio" name="plec" value="m">Mężczyzna
+
+                <hr>
+
+                <p><b>Dane logowania</b></p>
+                <label for="">Login:</label><br>
+                <input type="text" name="login"><br>
+                <label for="">Hasło:</label><br>
+                <input type="password" name="haslo"><br>
+                
+                <input type="checkbox" checked required>Zapoznałem się z <a href="polityka.txt" target="_blank">Polityką bezpieczeństwa</a><br>
+                <input type="reset" value="WYCZYŚĆ">
+                <input type="submit" value="REJESTRU">
+            </form>
+    </div>
+
+    <div id="prawy">
+        <h3>TEMATYKA FORUM</h3>
+		<ul>
+            <li>Hodowla zwierząt</li>
+                <ul>
+                    <li>psy</li>
+                    <li>koty</li>
+                </ul>
+            <li>Muzyka</li>
+            <li>Gry Komputerowe</li>
+        <ul>
+    </div>
+</body>
+</html>

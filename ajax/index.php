@@ -12,7 +12,7 @@
 
 <body>
   <div class="navbar"> </div>
-  <div class="container" id="komentarze">
+  <div class="container" id="napoje">
     <?php include("sql.php"); pobierz(0); ?>
     </div>
   <div class="text-center">
