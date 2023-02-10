@@ -76,10 +76,9 @@
                 "#wynik"
               ).innerHTML = `${imie.toUpperCase()} ${nazwisko.toUpperCase()}</br> Treść Twojej sprawy: ${usluga} </br> Na podany e-mail zostanie wysłana oferta`;
             } else {
-              document.querySelector("#wynik").innerHTML =
-                '<span style="color:red">' +
-                "Musisz się zapozanć z regulaminem" +
-                "</span>";
+              document.querySelector(
+                "#wynik"
+              ).innerHTML = `<span style="color:red"> Musisz się zapozanć z regulaminem</span>`;
             }
           }
         </script>
