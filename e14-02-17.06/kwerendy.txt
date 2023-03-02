@@ -1,0 +1,3 @@
+zapytanie 1: SELECT id, imie, nazwisko, choroba FROM `pacjenci`
+zapytanie 2: SELECT imie, nazwisko, leki_przepisane, opis FROM `pacjenci` WHERE id = 1;
+zapytanie 3: SELECT imie, nazwisko FROM `pacjenci` WHERE choroba = "J05";
