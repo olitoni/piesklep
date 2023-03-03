@@ -54,8 +54,6 @@
     <?php
     $pacjent = $_GET['pacjent'];
 
-    $conn = mysqli_connect("localhost", "root", "XN-W8nezk4eu", "poradnia");
-
     $query2 = "SELECT imie, nazwisko, leki_przepisane, opis FROM `pacjenci` WHERE id =" . $pacjent . "";
 
     $result = mysqli_query($conn, $query2);
