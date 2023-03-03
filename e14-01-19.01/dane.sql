@@ -66,7 +66,7 @@ INSERT INTO `dania` (`id`, `typ`, `nazwa`, `cena`) VALUES
 CREATE TABLE `filmy` (
   `id` int(10) UNSIGNED NOT NULL,
   `gatunki_id` int(10) UNSIGNED NOT NULL,
-  `rezyserzy_id` int(10) UNSIGNED NOT NULL,
+  `rezyserzy_id` int(10) UNSIGNED NULL,
   `tytul` text,
   `rok` year(4) DEFAULT NULL,
   `ocena` int(10) UNSIGNED DEFAULT NULL
