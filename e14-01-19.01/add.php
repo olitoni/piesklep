@@ -4,7 +4,7 @@
 		$rok = $_POST['rok'];
 		$ocena = $_POST['ocena'];
 
-		$conn = mysqli_connect('localhost','root','','dane') or die('błąd w połączeniu z bazą danych: dane');
+		$conn = mysqli_connect('localhost','root','','dane') or die('err');
 
 		if(empty($tytul) || empty($gatunek) || empty($rok) || empty($ocena)) {
 			exit("Nie podano danych filmu!<br>");
