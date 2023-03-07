@@ -1,0 +1,79 @@
+:root {
+  --kolorBanera: darkgreen;
+  --kolorZawartosci: yellow;
+  --kolorLewego: yellowgreen;
+  --kolorPrawego: yellowgreen;
+  --kolorStopki: darkslategray;
+  --wysokoscBanera: 150px;
+  --wysokoscZawartosci: 450px;
+  --szerokoscLewego: 30%;
+  --szerokoscCentrum: 45%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#baner {
+  position: absolute;
+  width: 100%;
+  height: var(--wysokoscBanera);
+  background-color: var(--kolorBanera);
+}
+
+#zawartosc {
+  position: absolute;
+  top: var(--wysokoscBanera);
+  width: 100%;
+  height: var(--wysokoscZawartosci);
+  background-color: var(--kolorZawartosci);
+}
+#lewy {
+  position: absolute;
+  width: var(--szerokoscLewego);
+  height: var(--wysokoscZawartosci);
+  float: left;
+  background-color: var(--kolorLewego);
+}
+
+#centrum {
+  position: absolute;
+  width: var(--szerokoscCentrum);
+  height: var(--wysokoscZawartosci);
+  float: left;
+  left: var(--szerokoscLewego);
+}
+
+#prawy {
+  position: absolute;
+  height: var(--wysokoscZawartosci);
+  float: left;
+  left: calc(var(--szerokoscCentrum) + var(--szerokoscLewego));
+  width: calc(100% - var(--szerokoscLewego) - var(--szerokoscCentrum));
+  background-color: var(--kolorPrawego);
+}
+
+#stopka {
+  position: absolute;
+  width: 100%;
+  top: calc(var(--wysokoscBanera) + var(--wysokoscZawartosci)) ;
+  height: calc(100% - var(--wysokoscBanera) - var(--wysokoscZawartosci));
+  background-color: var(--kolorStopki);
+}
+
+.kontener20 {
+  padding: 20px;
+}
+
+#baner,#stopka {
+  color: white;
+}
+
+.linkiMenu {
+  cursor: pointer;
+}
+
+.linkiMenu:hover {
+  text-decoration: underline;
+}

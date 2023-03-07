@@ -1,0 +1,1 @@
+<h1>Wstawka lewego panelu</h1>
