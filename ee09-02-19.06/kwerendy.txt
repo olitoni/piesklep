@@ -1,0 +1,4 @@
+kw1: SELECT marka, model FROM `samochody` WHERE `kolor` = "czerwony"
+kw2: UPDATE `samochody` SET `stan` = 'dobry' WHERE `rocznik` = 2003
+kw3: CREATE USER 'andrzej'@'localhost' IDENTIFIED BY 'andrzej1@';
+kw4: GRANT SELECT, UPDATE ON `samochody`.`samochody` TO 'andrzej'@'localhost';
