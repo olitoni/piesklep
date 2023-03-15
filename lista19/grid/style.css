@@ -1,0 +1,56 @@
+:root {
+  --wysokoscBanera: 15%;
+  --wysokoscCentrum: auto;
+  --wysokoscStopki: 15%;
+  --szerokoscLewego: 25%;
+  --szerokoscCentrum: 50%;
+  --szerokoscPrawego: 25%;
+  --kolorBanera: gray;
+  --kolorLewego: lightblue;
+  --kolorCentrum: lightgreen;
+  --kolorPrawego: lightcoral;
+  --kolorStopki: black;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: var(--szerokoscLewego) var(--szerokoscCentrum) var(--szerokoscPrawego);
+  grid-auto-rows: var(--wysokoscBanera) var(--wysokoscCentrum) var(--wysokoscStopki);
+  width: 100%;
+  height: 100vh;
+}
+
+#baner {
+  grid-area: 1 / 1 / 2 / 4;
+  background-color: var(--kolorBanera);
+  padding: 10px;
+}
+
+#lewy {
+  grid-area: 2 / 1 / 3 / 2;
+  background-color: var(--kolorLewego);
+  padding: 10px;
+}
+
+#centrum {
+  grid-area: 2 / 2 / 3 / 3;
+  background-color: var(--kolorCentrum);
+  padding: 10px;
+}
+
+#prawy {
+  grid-area: 2 / 3 / 3 / 4;
+  background-color: var(--kolorPrawego);
+  padding: 10px;
+}
+
+#stopka {
+  grid-area: 3 / 1 / 4 / 4;
+  background-color: var(--kolorStopki);
+  padding: 10px;
+  color: white;
+}

@@ -1,0 +1,57 @@
+:root {
+  --wysokoscBanera: 15%;
+  --wysokoscCentrum: 70%;
+  --wysokoscStopki: 15%;
+  --szerokoscLewego: 25%;
+  --szerokoscCentrum: 50%;
+  --szerokoscPrawego: 25%;
+  --kolorBanera: gray;
+  --kolorLewego: lightblue;
+  --kolorCentrum: lightgreen;
+  --kolorPrawego: lightcoral;
+  --kolorStopki: black;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  height: var(--wysokoscCentrum);
+}
+
+#baner {
+  background-color: var(--kolorBanera);
+  padding: 10px;
+  box-sizing: border-box;
+  height: var(--wysokoscBanera);
+}
+
+#lewy {
+  background-color: var(--kolorLewego);
+  padding: 10px;
+  width: var(--szerokoscLewego);
+}
+
+#centrum {
+  background-color: var(--kolorCentrum);
+  padding: 10px;
+  width: var(--szerokoscCentrum);
+}
+
+#prawy {
+  background-color: var(--kolorPrawego);
+  padding: 10px;
+  width: var(--szerokoscPrawego);
+}
+
+#stopka {
+  background-color: var(--kolorStopki);
+  height: var(--wysokoscStopki);
+  padding: 10px;
+  box-sizing: border-box;
+  color: white;
+}
