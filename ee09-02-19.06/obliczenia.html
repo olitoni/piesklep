@@ -54,26 +54,20 @@
 
     <script>
         function obliczcenepaliwa() {
-            var rodzaj = document.getElementById('rodzajPaliwa').value;
-            rodzaj = parseFloat(rodzaj);
-            var ilosc = document.getElementById('litry').value;
-            ilosc = parseFloat(ilosc);
+            var rodzaj = document.querySelector('#rodzajPaliwa').value;
+            var ilosc = document.querySelector('#litry').value;
             var koszt = 0;
             switch (rodzaj) {
-                case 1:
-                    koszt = ilosc * 4;
+                case '1':
+                    koszt = 4 * ilosc;
                     break;
 
-                case 2:
-                    koszt = ilosc * 3.5;
-                    break;
-                default:
-                    koszt - 0;
+                case '2':
+                    koszt = 3.5 * ilosc;
                     break;
             }
-            document.getElementById('koncowacenapaliwa').innerHTML = "Koszt paliwa: " + koszt + " zł";
+            document.querySelector('#koncowacenapaliwa').innerHTML = "Koszt paliwa: " + koszt + " zł";
         }
     </script>
 </body>
-
 </html>
