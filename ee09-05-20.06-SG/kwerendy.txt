@@ -1,0 +1,4 @@
+kw1: SELECT imie, nazwisko FROM kadra;
+kw2: SELECT COUNT(*) AS 'ilosc' FROM `uslugi` WHERE rodzaj = 2;
+kw3: CREATE USER `fryzjer` IDENTIFIED BY 'Fryz12';
+kw4: GRANT CREATE, ALTER, SELECT ON `egzamin2`.`kadra` TO 'fryzjer';

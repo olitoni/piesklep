@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Salon Fryzjerski</title>
+    <link rel="stylesheet" href="styl2.css" />
+  </head>
+
+  <body>
+    <main>
+      <div id="left">
+        <a href="index.html">
+          <h2>SALON FRYZJERSKI</h2>
+        </a>
+        <img src="obraz2.jpg" alt="Czesanie" />
+      </div>
+      <div id="right">
+        <h2>MENU</h2>
+      </div>
+      <div id="right2">
+        <ol>
+          <li>
+            <a href="fryzura.html">Strzyżenie</a>
+            <ul>
+              <li>Krótkie</li>
+              <li>Średnie</li>
+              <li>Półdługie</li>
+              <li>Długie</li>
+            </ul>
+          </li>
+          <li>Czesanie</li>
+          <li>Koloryzacja</li>
+        </ol>
+      </div>
+      <div id="left2">
+        <h3>Dziś promocja na strzyżenie włosów</h3>
+        <input type="radio" name="fryz" value="25" />Krótkie <br />
+        <input type="radio" name="fryz" value="30" />Średnie <br />
+        <input type="radio" name="fryz" value="40" />Półdługie <br />
+        <input type="radio" name="fryz" value="50" />Długie <br />
+        <button onclick="pokazCene()">Odkryj promocje</button>
+        <span id="wynik"></span>
+      </div>
+    </main>
+
+    <aside>
+      <div id="right3">
+        <img src="obraz1.jpg" alt="Fryzjer" />
+      </div>
+    </aside>
+
+    <footer>
+      <p>Autor: OJ</p>
+    </footer>
+
+    <script>
+      function pokazCene() {
+        let cena = document.querySelector('input[name="fryz"]:checked').value;
+        document.getElementById("wynik").innerHTML =
+          "Cena strzyżenia: " + cena + "zł";
+      }
+    </script>
+  </body>
+</html>
