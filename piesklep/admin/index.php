@@ -14,8 +14,8 @@ if (!isset($_SESSION['login']) || $_SESSION['admin'] == 0) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Piesklep</title>
-  <link rel="stylesheet" href="/css/normalize.css" />
-  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="../css/normalize.css" />
+  <link rel="stylesheet" href="../css/main.css" />
 </head>
 
 <body>
@@ -45,13 +45,13 @@ if (!isset($_SESSION['login']) || $_SESSION['admin'] == 0) {
               <a href class="c-nav__link" style="text-decoration: underline">Witaj, <?php echo $_SESSION['name'] ?></a>
             </li>
             <li class="c-nav__item">
-              <a href="/" class="c-nav__link">Home</a>
+              <a href="../" class="c-nav__link">Home</a>
             </li>
             <li class="c-nav__item">
-              <a href="/cart.php" class="c-nav__link">Koszyk</a>
+              <a href="../cart.php" class="c-nav__link">Koszyk</a>
             </li>
             <li class="c-nav__item">
-              <a href="/logout.php" class="c-nav__link">Wyloguj</a>
+              <a href="../logout.php" class="c-nav__link">Wyloguj</a>
             </li>
           </ul>
         </div>
@@ -88,8 +88,8 @@ if (!isset($_SESSION['login']) || $_SESSION['admin'] == 0) {
           <td>$name</td>
           <td>$description</td>
           <td>$price</td>
-          <td><a href='/misc/edit.php?id=$id' style='color: white;'>Edytuj</a></td>
-          <td><a href='/misc/delete.php?id=$id' style='color: #ff3333;'>Usun</a></td>
+          <td><a href='../misc/edit.php?id=$id' style='color: white;'>Edytuj</a></td>
+          <td><a href='../misc/delete.php?id=$id' style='color: #ff3333;'>Usun</a></td>
           </tr>";
         }
         ?>

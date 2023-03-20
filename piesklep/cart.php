@@ -104,7 +104,7 @@ if (isset($_POST['produ_removal'])) {
         $result = mysqli_query($connection, $query);
         while ($wiersz = mysqli_fetch_array($result)) {
           $name = $wiersz['name'];
-          $image = $wiersz['thumbnail'];
+          $image = ".".$wiersz['thumbnail'];
           $id = $wiersz['product'];
           $count = $wiersz['count'];
           $total += $price = $wiersz['price'] * $count;
