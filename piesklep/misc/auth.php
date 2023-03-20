@@ -29,7 +29,7 @@ if ($row) {
     //$pwd = 'HIDDEN';
     $action = 'Pomyslne logowanie';
     $stmt -> execute();
-    header('Location: /');
+    header('Location: /piesklep');
 } else {
     $action = 'Logowanie zakonczone niepowodzeniem';
     $stmt -> execute();

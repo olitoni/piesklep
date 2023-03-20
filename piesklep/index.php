@@ -1,11 +1,11 @@
 <?php
 session_start();
 if (!isset($_SESSION['login'])) {
-  header('Location: login.php');
+  header('Location: ./login.php');
   exit();
 }
 
-include 'misc/connection.php';
+include './misc/connection.php';
 
 if (isset($_POST['prod'])) {
   $id = (int)$_SESSION['id'];
@@ -28,7 +28,7 @@ if (isset($_POST['prod'])) {
   }
   
 
-  header('Location: /');
+  header('Location: /piesklep');
 }
 ?>
 
@@ -64,7 +64,7 @@ if (isset($_POST['prod'])) {
           <ul class="c-nav__list">
             <?php
             if ($_SESSION['admin'] == 1) {
-              echo "<li class='c-nav__item'><a href='/admin' class='c-nav__link'>Admin Panel</a></li>";
+              echo "<li class='c-nav__item'><a href='./admin' class='c-nav__link'>Admin Panel</a></li>";
             }
             ?>
             <li class="c-nav__item">
@@ -95,7 +95,7 @@ if (isset($_POST['prod'])) {
           while ($wiersz = mysqli_fetch_array($result)) {
             $name = $wiersz['name'];
             $description = $wiersz['description'];
-            $image = $wiersz['image'];
+            $image = ".".$wiersz['image'];
             $price = number_format($wiersz['price'], 2, ',', ' ');
             $id = $wiersz['id'];
             $review = str_repeat("★ ", $wiersz['review']);

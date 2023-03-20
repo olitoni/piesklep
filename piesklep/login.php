@@ -29,7 +29,7 @@
         <div class="c-nav">
           <ul class="c-nav__list">
             <li class="c-nav__item">
-              <a href="/" class="c-nav__link">Home</a>
+              <a href="../" class="c-nav__link">Home</a>
             </li>
             <li class="c-nav__item">
               <a href="login.php" class="c-nav__link">Zaloguj</a>
