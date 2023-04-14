@@ -1,0 +1,2 @@
+Brave Browser
+Version 1.38.119 Chromium: 101.0.4951.67 (Official Build) (64-bit)

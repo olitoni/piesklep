@@ -1,0 +1,4 @@
+kw1: SELECT nazwa, wystepowanie FROM ryby WHERE styl_zycia =1;
+kw2: SELECT ryby_id, wymiar_ochronny FROM okres_ochronny WHERE wymiar_ochronny <50;
+kw3: SELECT nazwa, akwen, wojewodztwo FROM ryby INNER JOIN lowisko ON ryby.id=lowisko.ryby_id WHERE rodzaj=2 ORDER BY ryby.nazwa ASC;
+kw4: ALTER TABLE ryby ADD dobowy_limit INTEGER;
