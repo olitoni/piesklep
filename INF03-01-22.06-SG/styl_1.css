@@ -1,44 +1,82 @@
-body{
-    font-family: Verdana;
-    margin: 0;
-}
-#baner{
-    background-color: #4682B4;
+body {
+    font-family: Helvetica;
+    margin: auto;
+  }
+  
+  #baner {
+    background-color: #00838F;
     color: white;
-    padding: 20px;
-    font-size: 120%;
-    text-align: center;
-}
-#baner h1{
-    top: 0;
-    margin: 0;
-}
-#lewy{
-    float: left;
-    background-color: #40E0D0;
-    width: 40%;
-    height: 500px;
-}
-#lewy li, h2{
-    margin-left: 10px;
-}
-#prawy{
-    float: left;
-    background-color: #40E0D0;
-    width: 60%;
-    height: 500px;
-}
-#prawy img{
     padding: 5px;
-    margin: 10px;
-    border: 1px solid #000080 ;
-}
-
-#stopka{
-    clear: both;
-    background-color: #4682B4;
-    color: white;
-    padding: 20px;
-    font-size: 120%;
+    font-size: 130%;
     text-align: center;
-}
+  }
+  
+  #stopka {
+    background-color: #00838F;
+    color: white;
+    padding: 5px;
+    font-size: 130%;
+    text-align: center;
+    clear: both;
+  }
+  
+  #lewy1 {
+    background-color: #EFEFEF;
+    width: 55%;
+    float: left;
+    height: 150px;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+  
+  
+  #prawy {
+    background-color: #4FB3BF;
+    width: 45%;
+    height: 450px;
+    text-align: center;
+    float: right;
+  }
+  
+  #lewy2 {
+    background-color: #EFEFEF;
+    width: 55%;
+    height: 300px;
+    float: left;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+  
+  img {
+    box-shadow: 10px 10px 7px dimgray;
+    margin: 20px;
+  }
+  
+  tr {
+    border: 1px solid #4FB3BF;
+    border-collapse: collapse;
+  }
+  
+  td {
+    border: 1px solid #4FB3BF;
+    border-collapse: collapse;
+    padding: 4px;
+  }
+  
+  th {
+    border: 1px solid #4FB3BF;
+    border-collapse: collapse;
+    padding: 4px;
+  }
+  
+  table {
+    width: 80%;
+    margin: auto;
+    border: 1px solid #4FB3BF;
+    border-collapse: collapse;
+  
+  }
+  
+  tr:hover {
+    background-color: #4FB3BF;
+  }
