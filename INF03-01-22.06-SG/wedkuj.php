@@ -18,7 +18,7 @@
       $dbname = "wedkowanie";
       $conn = mysqli_connect($server, $user, $passwd, $dbname);
       if (!$conn) {
-        die("Nie działa");
+        die("Err");
       }
       $sql = "SELECT ryby.nazwa, lowisko.akwen, lowisko.wojewodztwo FROM ryby, lowisko WHERE ryby.id=lowisko.Ryby_id and lowisko.rodzaj = 3";
       $zapytanie = mysqli_query($conn, $sql);
