@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="main.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="kalkulator">
+      <div class="row">
+        <button type="button" class="btn btn-warning col-md-3 liczba" onclick="kalkuluj(this)">1</button>
+        <button type="button" class="btn btn-warning col-md-3 liczba" onclick="kalkuluj(this)">2</button>
+        <button type="button" class="btn btn-warning col-md-3 liczba" onclick="kalkuluj(this)">3</button>
+      </div>
+      <div class="row">
+        <button type="button" class="btn btn-warning col-md-3 liczba" onclick="kalkuluj(this)">4</button>
+        <button type="button" class="btn btn-warning col-md-3 liczba" onclick="kalkuluj(this)">5</button>
+        <button type="button" class="btn btn-warning col-md-3 liczba" onclick="kalkuluj(this)">6</button>
+      </div>
+      <div class="row">
+        <button type="button" class="btn btn-warning col-md-3 liczba" onclick="kalkuluj(this)">7</button>
+        <button type="button" class="btn btn-warning col-md-3 liczba" onclick="kalkuluj(this)">8</button>
+        <button type="button" class="btn btn-warning col-md-3 liczba" onclick="kalkuluj(this)">9</button>
+      </div>
+      <div class="row">
+        <button type="button" class="btn btn-warning col-md-3 liczba" onclick="kalkuluj(this)">0</button>
+        <button type="button" class="btn btn-warning col-md-3 liczba" onclick="kalkuluj(this)">+</button>
+        <button type="button" class="btn btn-warning col-md-3 liczba" onclick="kalkuluj(this)">-</button>
+      </div>
+      <div class="row">
+        <input type="text" id="liczba" />
+      </div>
+      <div class="row">
+        <button type="button" class="btn btn-warning obsluga" onclick="kalkuluj(this)">Wyczyść</button>
+      </div>
+      <div class="row">
+        <button type="button" class="btn btn-warning obsluga" onclick="kalkuluj(this)">Przelicz</button>
+      </div>
+    </div>
+    <div class="parametry">
+      podstawa
+      <input type="text" id="podstawa" />
+      </div>
+      <div class="parametry">
+      wynik
+      <input type="text" id="wynik" />
+    </div>
+  </body>
+</html>
