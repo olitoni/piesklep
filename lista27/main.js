@@ -10,7 +10,8 @@ function kalkuluj(obj) {
       let liczba = document.querySelector('#liczba').value;
       let podstawa = document.querySelector('#podstawa').value.replace(',','.');
       document.querySelector('#wynik').value = liczba * podstawa;
-      alert('Dzien dobry Panie Tadeuszu');
+
+      if(podstawa%1 != 0)alert('Dzien dobry Panie Tadeuszu');
       break;
     }
     case '+': {
