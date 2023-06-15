@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.box {
+  width: 400px;
+  height: 600px;
+  background-color: rgb(63, 63, 63);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+#js-ans {
+  height: 560px;
+  overflow-y: auto;
+  color: white;
+}
+
+#js-prompt {
+  width: 320px;
+}
+
+#prompt > input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
