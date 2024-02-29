@@ -27,7 +27,7 @@ public class KolkoKrzyzyk extends JFrame implements ActionListener {
                 buttons[i][j] = new JButton("");
                 buttons[i][j].setForeground(Color.WHITE);
                 buttons[i][j].setBackground(Color.BLACK);
-                buttons[i][j].setFont(new Font("Arial", Font.PLAIN, 48));
+                buttons[i][j].setFont(new Font("Arial", Font.PLAIN, 72));
                 buttons[i][j].addActionListener(this);
                 add(buttons[i][j]);
             }
@@ -44,7 +44,7 @@ public class KolkoKrzyzyk extends JFrame implements ActionListener {
             clickedButton.setText(String.valueOf(currentPlayer));
 
             if (checkWinner()) {
-                JOptionPane.showMessageDialog(this, "Wygrywa " + currentPlayer + " !");
+                JOptionPane.showMessageDialog(this, "Wygrywa " + currentPlayer + "!");
                 resetGame();
             } else if (isBoardFull()) {
                 JOptionPane.showMessageDialog(this, "Remis!");
