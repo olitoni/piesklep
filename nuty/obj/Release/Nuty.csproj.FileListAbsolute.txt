@@ -1,0 +1,10 @@
+F:\Informatyka TG\Nuty\bin\Release\Nuty.exe.config
+F:\Informatyka TG\Nuty\bin\Release\Nuty.exe
+F:\Informatyka TG\Nuty\bin\Release\Nuty.pdb
+F:\Informatyka TG\Nuty\obj\Release\Nuty.csprojAssemblyReference.cache
+F:\Informatyka TG\Nuty\obj\Release\Nuty.Form1.resources
+F:\Informatyka TG\Nuty\obj\Release\Nuty.Properties.Resources.resources
+F:\Informatyka TG\Nuty\obj\Release\Nuty.csproj.GenerateResource.cache
+F:\Informatyka TG\Nuty\obj\Release\Nuty.csproj.CoreCompileInputs.cache
+F:\Informatyka TG\Nuty\obj\Release\Nuty.exe
+F:\Informatyka TG\Nuty\obj\Release\Nuty.pdb

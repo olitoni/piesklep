@@ -1,0 +1,102 @@
+Zadania - struktury danych
+
+ 1. Sprawd� w internecie jak dzia�a wprowadzanie i pobieranie danych w strukturach:
+    - stos
+    - kolejka
+    - lista
+    - tablica Hashtable
+ 2. Czy w wymienionych powy�ej strukturach mog� istnie� duplikaty?
+ 3. Pobierz z internetu czcionk� w kszta�cie nut (patrz adresy w pliku NUTY.XLS) i zainstaluj j� w systemie
+ 4. Utw�rz Okno edycji nut zawieraj�ce nast�puj�ce elementy:
+    - przycisk w��czaj�cy edycj� nut
+    - przycisk odtwarzaj�cy wpisany utw�r
+    - przycisk zapisu/odczytu utworu na dysku
+    - przycisk decyduj�cy czy wstawiany do utworu znak b�dzie nut� czy pauz�
+    - przyciski reguluj�ce wysoko�� tonu
+    - przyciski reguluj�ce d�ugo�� nuty/pauzy
+    - przyciski operacji na utworze:
+      * dodawanie nuty
+      * kasowanie nuty
+      * przyciski lewo/prawo ustawiaj�ce kontekst dodawania/kasowania przy pracy z list� nut
+    - pole edycyjne prezentuj�ce nut� przeznaczon� do wstawienia
+    - pole edycyjne prezentuj�ce ca�o�� utworu
+    - przyciski radio button (stos, kolejka, lista)
+    - element graficzny (np. logo, t�o, ...)
+ 5. Wstawiaj�c elementy okna pami�taj o prawid�owym nazewnictwie - nie u�ywamy skr�t�w, styl camel! 
+    Zadbaj o szat� graficzn� - logiczne rozmieszczenie kontrolek.
+ 6. Odszukaj w internecie jakie parametry ma rozkaz Console.Beep i jakiej biblioteki nale�y u�y� by wykorzysta� ten rozkaz.
+ 7. Oprogramuj przycisk odtwarzania utworu tak by zagra� gam�.
+ 8. Utw�rz okno operacji dyskowych: odczyt utworu, zapis utworu. 
+    Odczyty i zapisy w postaci XML np. wed�ug wzoru poni�ej.
+    Oprogramowanie tego okna mo�na od�o�y� do czasu zako�czenia oprogramowywania okna edycji.
+
+    <utw�r>
+      <znakPi�ciolinii>
+        <typZnaku>
+           nuta
+        </typZnaku>
+        <d�ugo��>
+          p�nuta
+        </d�ugo��>
+        <wysoko��>
+           C4
+        </wysoko��>
+      </znakPi�ciolinii>
+      <znakPi�ciolinii>
+        <typZnaku>
+           pauza
+        </typZnaku>
+        <d�ugo��>
+          �semka
+        </d�ugo��>
+        <wysoko��>
+           C0
+        </wysoko��>
+      </znakPi�ciolinii>
+      ...
+    </utw�r>
+
+ 9. Przygotuj typy wyliczeniowe
+    - wysoko�� nuty
+    - d�ugo�� nuty/pauzy
+    - typ edycji (stos, kolejka, lista)
+10. Zadeklaruj klas� ZnakuPi�ciolinii zawieraj�c� informacje
+    - typ znaku (np. nuta, pauza, klucz, ...)
+    - kod muzyczny nuty (C, D, E, F, ... Cis, Dis, ... Ceis, Deis, ...) uwzgl�dnij w kodowaniu wysoko�� oktawy (np. C4, C5, ...)
+    - d�ugo�� trwania nuty lub pauzy
+11. Zadeklaruj klas� Wysoko��Nuty zawieraj�c�
+    - indeks
+    - kod muzyczny nuty
+    - liter� nuty (font) (mo�e by� kilka liter w zale�no�ci od d�ugo�ci trwania)
+    - cz�stotliwo��
+12. Zadeklaruj g��wne "pola" (zmienne globalne) klasy okno edycji:
+    - tablic� hashtable zawieraj�c� d�ugo�ci trwania nut (ca�a nuta, p�nuta, �wiartka,...)
+    - lista wysoko�ci nut (zawieraj�ca jednocze�nie list� liter reprezentuj�cych dan� nut� o r�nych d�ugo�ciach trwania)
+    - znak do wstawienia jako znak pi�ciolinii (widoczny w polu edycyjnym nuty do wstawienia)
+    - utw�r jako list� znak�w pi�ciolinii (widoczny w polu edycyjnym utworu)
+    - typ edycji wskazuj�cy czy dodawanie i usuwanie nut ma odbywa� si� w trybie pracy stosu, kolejki czy listy
+    - pozycja kursora:
+         pole u�ywane do wskazania, w kt�rym miejscu wstawiana lub wycinana jest nuta 
+         (tylko przy edycji w trybie listy)
+13. W procedurze �aduj�cej okno edycji zadeklaruj pocz�tkowe warto�ci wymienionych powy�ej p�l.
+14. Przygotuj procedur� ustalaj�c� aktywno�� przycisk�w w zale�no�ci od tego 
+    czy program jest w trybie edycji utworu czy w trybie odtwarzania lub zapisu na dysku.
+15. Napisz procedury ustalaj�ce w�a�ciwo�ci "pola" znak do wstawienia:
+    - oprogramowanie przycisk�w reguluj�cych d�ugo�� nuty: D�u�ej/Kr�cej
+    - oprogramowanie przycisk�w reguluj�cych cz�stotliwo�� (wyskoko��) nuty: Wy�szyTon/Ni�szyTon
+16. Oprogramuj przycisk decyduj�cy czy wstawiany znak jest nut� czy pauz�.
+17. Oprogramuj przyciski radio button tak aby pole typu edycji wskazywa�o 
+    czy mamy do czynienia z edycj� w trybie stosu, kolejki czy listy.
+18. Oprogramuj dzia�anie przycisku wstawiaj�cego nut� do utworu tak by:
+    - "pole" znak do wstawienia by�o dodawane do "pola" z utworem,
+    - font z tekstBox do wstawienia pojawi� si� w textBoksie utworu.
+19. Oprogramuj dzia�anie przycisku kasuj�cego nut� z utworu tak by:
+    - nuta by�a usuwana z "pola" zawieraj�cego utw�r,
+    - czcionka nuty w textBoksie utworu zosta�a wykasowana.
+20. Oprogramuj przyciski przesuwania nuty w lewo lub w prawo, kt�re maj� by� aktywne przy trybie edycji "lista".
+    - program ma ustawia� fokus na polu edycyjnym utworu i dokonywa� selekcji jednej nuty 
+    - je�li kursor stoi przed pierwszym znakiem muzycznym nie ma zaznaczonych �adnych nut
+21. Zmie� dzia�anie przycisk�w wstawiania i kasowania nuty tak by dokonywane ono by�o w miejscu wskazanym kursorem
+    (na bazie "pola" pozycja kursora)
+22. Zmie� dzia�anie przycisku odtwarzaj�cego utw�r tak by mo�na by�o us�ysze� ca�y utw�r.
+23. W MS Word przygotuj opis programu: specyfikacja danych, zrzuty ekranu, funkcjonalno��.
